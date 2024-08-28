@@ -10,10 +10,23 @@ package isi.deso.tp_etapa1.model;
  */
 
 public class Vendedor {
+    //Atributos 
     private int id;
     private String nombre;
     private String direccion;
     private Coordenada coordenadas;
+
+    //Constructores
+    public Vendedor() {}
+
+    public Vendedor(int id, String nombre, String direccion, Coordenada coordenadas) {
+        this.id = id;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.coordenadas = coordenadas;
+    }
+
+    // get\set
 
     public int getId() {
         return id;
@@ -47,14 +60,7 @@ public class Vendedor {
         this.coordenadas = coordenadas;
     }
 
-    public Vendedor() {}
-
-    public Vendedor(int id, String nombre, String direccion, Coordenada coordenadas) {
-        this.id = id;
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.coordenadas = coordenadas;
-    }
+    //funciones adicionales
 
     public double distancia(Cliente cliente){
         double radio = 6378;
@@ -66,6 +72,11 @@ public class Vendedor {
         dentroRaiz = ((Math.pow(Math.sin((latC-latV)/2),2))+Math.cos(latV)*Math.cos(latC)*(Math.pow(Math.sin((lonC-lonV)/2),2)));
         
         return 2*radio*Math.asin(Math.sqrt(dentroRaiz)); 
+    }
+
+    @Override
+    public String toString() {
+        return "Vendedor{id=" + this.id + ", nombre='" + this.nombre + "'}";
     }
  
 }
