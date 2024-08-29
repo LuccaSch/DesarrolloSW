@@ -30,7 +30,7 @@ public class Main {
         Vendedor v2=gestorVendedor.crearVendedor(2,"Polleria don pechuga","Paraguay 444",new Coordenada(2, 3));
         Vendedor v3=gestorVendedor.crearVendedor(3,"Polleria alitas","Vicente 23",new Coordenada(3, 6));
 
-        List<Vendedor> listaVendedores= new ArrayList<Vendedor>();
+        List<Vendedor> listaVendedores= new ArrayList<>();
 
         listaVendedores.add(v1);
         listaVendedores.add(v2);
@@ -59,7 +59,7 @@ public class Main {
         Cliente c2=gestorCliente.crearClientes(2,"pedro","2042250012","pedrito@gmail.com","salta 322",new Coordenada(2, 3));
         Cliente c3=gestorCliente.crearClientes(2,"patricio","2042255512","p@gmail.com","Peron 2",new Coordenada(4, 4));
         
-        List<Cliente> listaClientes= new ArrayList<Cliente>();
+        List<Cliente> listaClientes= new ArrayList<>();
         
         listaClientes.add(c1);
         listaClientes.add(c2);
