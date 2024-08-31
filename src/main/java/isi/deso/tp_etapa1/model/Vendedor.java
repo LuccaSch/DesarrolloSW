@@ -10,17 +10,17 @@ public class Vendedor {
     private int id;
     private String nombre;
     private String direccion;
-    private Coordenada coordenadas;
+    private Coordenada coordenada;
 
     // Constructores
     public Vendedor() {
     }
 
-    public Vendedor(int id, String nombre, String direccion, Coordenada coordenadas) {
+    public Vendedor(int id, String nombre, String direccion, Coordenada coordenada) {
         this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
-        this.coordenadas = coordenadas;
+        this.coordenada = coordenada;
     }
 
     // getters\setters
@@ -48,19 +48,19 @@ public class Vendedor {
         this.direccion = direccion;
     }
 
-    public Coordenada getCoordenadas() {
-        return coordenadas;
+    public Coordenada getCoordenada() {
+        return coordenada;
     }
 
-    public void setCoordenadas(Coordenada coordenadas) {
-        this.coordenadas = coordenadas;
+    public void setCoordenada(Coordenada coordenada) {
+        this.coordenada = coordenada;
     }
 
     // Calculo de distancia, con lat y long en radianes
     public double distancia(Cliente cliente) {
         double radio = 6378;
-        double latV = this.coordenadas.getLat();
-        double lonV = this.coordenadas.getLgn();
+        double latV = this.coordenada.getLat();
+        double lonV = this.coordenada.getLgn();
         double latC = cliente.getCoordenada().getLat();
         double lonC = cliente.getCoordenada().getLgn();
         double dentroRaiz;
