@@ -4,11 +4,9 @@
  */
 package isi.deso.tp_etapa1.model;
 
-/**
- *
- * @author jarteaga
- */
 public class Cliente {
+
+    // Atributos
     private int id;
     private String nombre;
     private String cuit;
@@ -16,18 +14,20 @@ public class Cliente {
     private String direccion;
     private Coordenada coordenada;
 
+    // Constructores
     public Cliente() {
     }
 
-    public Cliente(int id, String nombre,String cuit, String email, String direccion, Coordenada coordenada) {
+    public Cliente(int id, String nombre, String cuit, String email, String direccion, Coordenada coordenada) {
         this.id = id;
-        this.nombre=nombre;
+        this.nombre = nombre;
         this.cuit = cuit;
         this.email = email;
         this.direccion = direccion;
         this.coordenada = coordenada;
     }
 
+    // getters\setters
     public int getId() {
         return id;
     }
@@ -41,7 +41,7 @@ public class Cliente {
     }
 
     public void setNombre(String nombre) {
-        this.nombre=nombre;
+        this.nombre = nombre;
     }
 
     public String getCuit() {

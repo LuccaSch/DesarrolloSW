@@ -4,15 +4,22 @@
  */
 package isi.deso.tp_etapa1.model;
 
-/**
- *
- * @author jarteaga
- */
-
 public class Coordenada {
+
+    // Atributos
     private double lat;
     private double lgn;
 
+    // Constructores
+    public Coordenada() {
+    }
+
+    public Coordenada(double lat, double lgn) {
+        this.lat = lat;
+        this.lgn = lgn;
+    }
+
+    // getters\setters
     public double getLat() {
         return lat;
     }
@@ -29,18 +36,15 @@ public class Coordenada {
         this.lgn = lgn;
     }
 
-    public Coordenada(double lat, double lgn) {
-        this.lat = lat;
-        this.lgn = lgn;
-    }
-
     @Override
     public String toString() {
         return "Coordenada{" + "lat=" + lat + ", lgn=" + lgn + '}';
     }
-    
-    public boolean equals(Coordenada c){
-        if (c==null) return false;
-        return (c==this || (this.lat==c.lat && this.lgn==c.lgn));
+
+    public boolean equals(Coordenada c) {
+        if (c == null) {
+            return false;
+        }
+        return (c == this || (this.lat == c.lat && this.lgn == c.lgn));
     }
 }

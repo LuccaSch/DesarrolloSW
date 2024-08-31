@@ -4,20 +4,17 @@
  */
 package isi.deso.tp_etapa1.model;
 
-/**
- *
- * @author jarteaga
- */
-
 public class Vendedor {
-    //Atributos 
+
+    // Atributos
     private int id;
     private String nombre;
     private String direccion;
     private Coordenada coordenadas;
 
-    //Constructores
-    public Vendedor() {}
+    // Constructores
+    public Vendedor() {
+    }
 
     public Vendedor(int id, String nombre, String direccion, Coordenada coordenadas) {
         this.id = id;
@@ -26,8 +23,7 @@ public class Vendedor {
         this.coordenadas = coordenadas;
     }
 
-    // get\set
-
+    // getters\setters
     public int getId() {
         return id;
     }
@@ -60,23 +56,22 @@ public class Vendedor {
         this.coordenadas = coordenadas;
     }
 
-    //funciones adicionales
-
-    public double distancia(Cliente cliente){
+    // Calculo de distancia, con lat y long en radianes
+    public double distancia(Cliente cliente) {
         double radio = 6378;
         double latV = this.coordenadas.getLat();
         double lonV = this.coordenadas.getLgn();
         double latC = cliente.getCoordenada().getLat();
         double lonC = cliente.getCoordenada().getLgn();
         double dentroRaiz;
-        dentroRaiz = ((Math.pow(Math.sin((latC-latV)/2),2))+Math.cos(latV)*Math.cos(latC)*(Math.pow(Math.sin((lonC-lonV)/2),2)));
-        
-        return 2*radio*Math.asin(Math.sqrt(dentroRaiz)); 
+        dentroRaiz = ((Math.pow(Math.sin((latC - latV) / 2), 2)) + Math.cos(latV) * Math.cos(latC) * (Math.pow(Math.sin((lonC - lonV) / 2), 2)));
+
+        return 2 * radio * Math.asin(Math.sqrt(dentroRaiz));
     }
 
     @Override
     public String toString() {
         return "Vendedor{id=" + this.id + ", nombre='" + this.nombre + "'}";
     }
- 
+
 }
