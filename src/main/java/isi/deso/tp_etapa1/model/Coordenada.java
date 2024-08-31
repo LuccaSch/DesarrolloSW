@@ -33,5 +33,14 @@ public class Coordenada {
         this.lat = lat;
         this.lgn = lgn;
     }
+
+    @Override
+    public String toString() {
+        return "Coordenada{" + "lat=" + lat + ", lgn=" + lgn + '}';
+    }
     
+    public boolean equals(Coordenada c){
+        if (c==null) return false;
+        return (c==this || (this.lat==c.lat && this.lgn==c.lgn));
+    }
 }
