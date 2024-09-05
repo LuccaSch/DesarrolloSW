@@ -1,6 +1,8 @@
 package isi.deso.tp_etapa1.service;
 
+import isi.deso.tp_etapa1.model.Bebida;
 import isi.deso.tp_etapa1.model.Coordenada;
+import isi.deso.tp_etapa1.model.ItemMenu;
 import isi.deso.tp_etapa1.model.Vendedor;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,4 +56,59 @@ public class GestorVendedor {
     public void deleteVendedoresPosicion(List<Vendedor> vendedores, int posicion) {
         vendedores.remove(posicion);
     }
+
+    public List<ItemMenu> getItemBebidas(Vendedor vend) {
+        List<ItemMenu> menuVendedor = vend.getMenu();
+        List<ItemMenu> aux = new ArrayList<>();
+
+        for (ItemMenu item : menuVendedor) {
+            if (item.esBebida()) {
+                aux.add(item);
+            }
+        }
+
+        return aux;
+    }
+
+    public List<ItemMenu> getItemComidas(Vendedor vend) {
+        List<ItemMenu> menuVendedor = vend.getMenu();
+        List<ItemMenu> aux = new ArrayList<>();
+
+        for (ItemMenu item : menuVendedor) {
+            if (item.esComida()) {
+                aux.add(item);
+            }
+        }
+
+        return aux;
+
+    }
+
+    public List<ItemMenu> getItemComidasVeganas(Vendedor vend) {
+        List<ItemMenu> menuVendedor = vend.getMenu();
+        List<ItemMenu> aux = new ArrayList<>();
+
+        for (ItemMenu item : menuVendedor) {
+            if (item.esComida() && item.aptoVegano()) {
+                aux.add(item);
+            }
+        }
+
+        return aux;
+
+    }
+
+    public List<ItemMenu> getItemBebidasSinAlcohol(Vendedor vend) {
+        List<ItemMenu> menuVendedor = vend.getMenu();
+        List<ItemMenu> aux = new ArrayList<>();
+
+        for (ItemMenu item : menuVendedor) {
+            if (item.esBebida() && ((Bebida) item).esBebidaAlcoholica()) {
+                aux.add(item);
+            }
+        }
+
+        return aux;
+    }
+
 }

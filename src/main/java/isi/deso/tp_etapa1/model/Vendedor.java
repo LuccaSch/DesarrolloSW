@@ -4,6 +4,8 @@
  */
 package isi.deso.tp_etapa1.model;
 
+import java.util.*;
+
 public class Vendedor {
 
     // Atributos
@@ -11,9 +13,11 @@ public class Vendedor {
     private String nombre;
     private String direccion;
     private Coordenada coordenada;
+    private List<ItemMenu> menu;
 
     // Constructores
     public Vendedor() {
+        this.menu = new ArrayList<>();
     }
 
     public Vendedor(int id, String nombre, String direccion, Coordenada coordenada) {
@@ -21,6 +25,7 @@ public class Vendedor {
         this.nombre = nombre;
         this.direccion = direccion;
         this.coordenada = coordenada;
+        this.menu = new ArrayList<>();
     }
 
     // getters\setters
@@ -72,6 +77,14 @@ public class Vendedor {
     @Override
     public String toString() {
         return "Vendedor{id=" + this.id + ", nombre='" + this.nombre + "'}";
+    }
+
+    public List<ItemMenu> getMenu() {
+        return this.menu;
+    }
+
+    public void agregarPlato(ItemMenu item) {
+        menu.add(item);
     }
 
 }

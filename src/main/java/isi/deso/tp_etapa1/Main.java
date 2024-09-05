@@ -95,5 +95,6 @@ public class Main {
 
         // Mostrando clientes
         listaClientes.forEach(cliente -> System.out.println(cliente));
+
     }
 }
