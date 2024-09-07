@@ -10,13 +10,31 @@ public class Categoria {
     private String descripcion;
     private Item tipo_item;
     
-    public Categoria(){
-        
-    }
+    public Categoria(){}
     
     public Categoria(int id, String desc, Item tipo_item){
         this.id = id;
         this.descripcion = desc;
         this.tipo_item=tipo_item;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getDescripcion() {
+        return this.descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Item getTipo_item() {
+        return tipo_item;
     }
 }

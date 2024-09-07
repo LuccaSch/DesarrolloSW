@@ -6,16 +6,22 @@ package isi.deso.tp_etapa1.model;
 
 public class BebidaAlcoholica extends Bebida {
 
+    //atributos heredados:
+    //ItemMenu {int id, String nombre, String descripcion, double precio, Categoria categoria,double peso} 
+    //Bebida {int tamano double volumen}
     private int graduacionAlcoholica;
-
-    public BebidaAlcoholica(int tamano, double volumen, int id, String nombre, String descripcion, double precio) {
-        this.volumen = volumen;
-        this.tamano = tamano;
-        this.peso = volumen * 0.99;
+   
+    public BebidaAlcoholica(int id, String nombre, String descripcion, double precio, Categoria categoria,Tamano tamano, double volumen,int graduacionAlcoholica) {
         this.id=id;
         this.nombre=nombre;
         this.descripcion=descripcion;
         this.precio=precio;
+        this.categoria=categoria;
+        
+        this.volumen = volumen;
+        this.peso = volumen * 0.99;
+        this.tamano = tamano;
+        this.graduacionAlcoholica=graduacionAlcoholica;
     }
 
     public BebidaAlcoholica(int graduacionAlcoholica) {
@@ -36,8 +42,6 @@ public class BebidaAlcoholica extends Bebida {
     }
 
     @Override
-    public boolean esBebidaAlcoholica() {
-        return true;
-    }
+    public boolean esBebidaNoAlcoholica(){return false;}
 
 }

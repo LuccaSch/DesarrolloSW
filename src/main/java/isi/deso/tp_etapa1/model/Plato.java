@@ -4,16 +4,18 @@
  */
 package isi.deso.tp_etapa1.model;
 
-public class Comida extends ItemMenu {
+public class Plato extends ItemMenu {
+
+    //ItemMenu {int id, String nombre, String descripcion, double precio, Categoria categoria,double peso
 
     private int calorias;
     private boolean aptoCeliaco;
     private boolean aptoVegano;
 
-    public Comida() {
+    public Plato() {
     }
 
-    public Comida(int calorias, boolean aptoCeliaco, boolean aptoVegano, double peso, int id, String nombre, String descripcion, double precio) {
+    public Plato(int id, String nombre, String descripcion, double precio,int calorias, boolean aptoCeliaco, boolean aptoVegano,Categoria categoria, double peso) {
         this.calorias = calorias;
         this.aptoCeliaco = aptoCeliaco;
         this.aptoVegano = aptoVegano;
@@ -22,6 +24,7 @@ public class Comida extends ItemMenu {
         this.nombre=nombre;
         this.descripcion=descripcion;
         this.precio=precio;
+        this.categoria=categoria;
         
     }
 
@@ -72,4 +75,7 @@ public class Comida extends ItemMenu {
     public double peso() {
         return (this.peso) * 1.1;
     }
+
+    @Override
+    public boolean esBebidaNoAlcoholica(){return false;}
 }

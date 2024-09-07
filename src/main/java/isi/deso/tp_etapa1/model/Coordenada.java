@@ -47,4 +47,6 @@ public class Coordenada {
         }
         return (c == this || (this.lat == c.lat && this.lgn == c.lgn));
     }
+
+    
 }

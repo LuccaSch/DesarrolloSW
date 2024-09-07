@@ -4,7 +4,8 @@
  */
 package isi.deso.tp_etapa1.model;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Vendedor {
 
@@ -87,7 +88,7 @@ public class Vendedor {
         return this.menu;
     }
 
-    public void agregarPlato(ItemMenu item) {
+    public void agregarItem(ItemMenu item) {
         menu.add(item);
     }
 

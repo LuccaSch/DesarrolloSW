@@ -1,11 +1,11 @@
 package isi.deso.tp_etapa1.service;
 
-import isi.deso.tp_etapa1.model.Bebida;
+import java.util.ArrayList;
+import java.util.List;
+
 import isi.deso.tp_etapa1.model.Coordenada;
 import isi.deso.tp_etapa1.model.ItemMenu;
 import isi.deso.tp_etapa1.model.Vendedor;
-import java.util.ArrayList;
-import java.util.List;
 
 public class GestorVendedor {
     // Metodos que deberian ser definido dentro de un GestorVendedores
@@ -93,7 +93,7 @@ public class GestorVendedor {
                 aux.add(item);
             }
         }
-
+        
         return aux;
 
     }
@@ -103,7 +103,7 @@ public class GestorVendedor {
         List<ItemMenu> aux = new ArrayList<>();
 
         for (ItemMenu item : menuVendedor) {
-            if (item.esBebida() && ((Bebida) item).esBebidaAlcoholica()) {
+            if (item.esBebidaNoAlcoholica()) {
                 aux.add(item);
             }
         }

@@ -6,14 +6,20 @@ package isi.deso.tp_etapa1.model;
 
 public class BebidaSinAlcohol extends Bebida {
 
-    public BebidaSinAlcohol(int tamano, double volumen, int id, String nombre, String descripcion, double precio) {
-        this.volumen = volumen;
-        this.tamano = tamano;
-        this.peso = volumen * 1.04;
+    //ItemMenu {int id, String nombre, String descripcion, double precio, Categoria categoria,double peso, 
+    //Bebida {int tamano double volumen}
+
+    public BebidaSinAlcohol(int id, String nombre, String descripcion, double precio, Categoria categoria,Tamano tamano, double volumen) {
         this.id=id;
         this.nombre=nombre;
         this.descripcion=descripcion;
         this.precio=precio;
+        this.categoria=categoria;
+        
+        this.volumen = volumen;
+        this.peso = volumen * 1.04;
+        this.tamano = tamano;
+        
     }
 
     @Override
@@ -22,8 +28,6 @@ public class BebidaSinAlcohol extends Bebida {
     }
 
     @Override
-    public boolean esBebidaAlcoholica() {
-        return false;
-    }
+    public boolean esBebidaNoAlcoholica(){return true;}
 
 }

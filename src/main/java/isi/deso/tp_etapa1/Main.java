@@ -3,117 +3,68 @@
  */
 package isi.deso.tp_etapa1;
 
-import isi.deso.tp_etapa1.service.GestorCliente;
-import isi.deso.tp_etapa1.service.GestorVendedor;
-import isi.deso.tp_etapa1.model.*;
-import java.util.ArrayList;
 import java.util.List;
+
+import isi.deso.tp_etapa1.model.BebidaAlcoholica;
+import isi.deso.tp_etapa1.model.BebidaSinAlcohol;
+import isi.deso.tp_etapa1.model.Categoria;
+import isi.deso.tp_etapa1.model.Coordenada;
+import isi.deso.tp_etapa1.model.Item;
+import isi.deso.tp_etapa1.model.ItemMenu;
+import isi.deso.tp_etapa1.model.Plato;
+import isi.deso.tp_etapa1.model.Tamano;
+import isi.deso.tp_etapa1.model.Vendedor;
+import isi.deso.tp_etapa1.service.GestorVendedor;
 
 public class Main {
 
     public static void main(String[] args) {
         GestorVendedor gestorVendedor = new GestorVendedor();
-        GestorCliente gestorCliente = new GestorCliente();
 
         // Creando los 3 vendedores
         Vendedor v1 = gestorVendedor.crearVendedor(1, "Roticeria Pampita", "San luis 34", new Coordenada(1, 2));
-        Vendedor v2 = gestorVendedor.crearVendedor(2, "Polleria Don Pechuga", "Paraguay 444", new Coordenada(2, 3));
-        Vendedor v3 = gestorVendedor.crearVendedor(3, "Polleria Alitas", "Vicente 23", new Coordenada(3, 6));
-
-        // Creando lista de vendedores
-        List<Vendedor> listaVendedores = new ArrayList<>();
-
-        // Agregando los 3 vendedores a la lista
-        listaVendedores.add(v1);
-        listaVendedores.add(v2);
-        listaVendedores.add(v3);
-
-        System.out.print("Vendedores filtrados\n");
-
-        // Filtrando vendedores con Id 1
-        List<Vendedor> listaVendedoresFiltradoID = gestorVendedor.filterVendedoresId(listaVendedores, 1);
-        listaVendedoresFiltradoID.forEach(vendedor -> System.out.println(vendedor));
-
-        // Filtrando vendedores con Nombre Polleria Don Pechuga
-        List<Vendedor> listaVendedoresFiltradoNombre = gestorVendedor.filterVendedoresNombre(listaVendedores, "Polleria Don Pechuga");
-        listaVendedoresFiltradoNombre.forEach(vendedor -> System.out.println(vendedor));
-
-        // Creando los 3 clientes
-        Cliente c1 = gestorCliente.crearClientes(1, "Lucca", "2043350012", "lsch@gmail.com", "San Luis 34", new Coordenada(1, 1));
-        Cliente c2 = gestorCliente.crearClientes(2, "Pedro", "2042250012", "pedrito@gmail.com", "Salta 322", new Coordenada(2, 3));
-        Cliente c3 = gestorCliente.crearClientes(2, "Patricio", "2042255512", "p@gmail.com", "Peron 2", new Coordenada(4, 4));
-
-        // Creando lista de clientes
-        List<Cliente> listaClientes = new ArrayList<>();
-
-        // Agregando los 3 clientes a la lista
-        listaClientes.add(c1);
-        listaClientes.add(c2);
-        listaClientes.add(c3);
-
-        System.out.print("Clientes filtrados\n");
-
-        // Filtrando clientes con Id 1
-        List<Cliente> listaClienteFiltradoID = gestorCliente.filterClienteId(listaClientes, 1);
-        listaClienteFiltradoID.forEach(cliente -> System.out.println(cliente));
-
-        // Filtrando clientes con Nombre Pedro
-        List<Cliente> listaClienteFiltradoNombre = gestorCliente.filterClienteNombre(listaClientes, "Pedro");
-        listaClienteFiltradoNombre.forEach(cliente -> System.out.println(cliente));
-
-        // Calculando distancia entre Vendedor y Cliente
-        System.out.print("Distancia entre " + v1 + " y " + c1 + " es: " + v1.distancia(c1) + " km \n");
-
-        System.out.print("Vendedores Actuales\n");
-
-        listaVendedores.forEach(vendedor -> System.out.println(vendedor));
-
-        // Eliminando vendedores con Id 1
-        gestorVendedor.deleteVendedoresId(listaVendedores, 1);
-
-        // Eliminando vendedores con Nombre Polleria Don Pechuga
-        gestorVendedor.deleteVendedoresNombre(listaVendedores, "Polleria Don Pechuga");
-
-        System.out.print("Vendedores luego de eliminacion\n");
-
-        // Mostrando vendedores
-        listaVendedores.forEach(vendedor -> System.out.println(vendedor));
-
-        System.out.print("Clientes Actuales\n");
-
-        listaClientes.forEach(cliente -> System.out.println(cliente));
-
-        // Eliminando clientes con Id 1
-        gestorCliente.deleteClienteId(listaClientes, 1);
-
-        // Eliminando clientes con Nombre Pedro
-        gestorCliente.deleteClienteNombre(listaClientes, "Pedro");
-
-        System.out.print("Clientes luego de eliminacion\n");
-
-        // Mostrando clientes
-        listaClientes.forEach(cliente -> System.out.println(cliente));
-        
-        
         
         //int calorias, boolean aptoCeliaco, boolean aptoVegano, double peso, int id, String nombre, String descripcion, double precio
-        //agregando itemMenu a un vendedor existente
-        v1.agregarPlato(new Comida(1, false, false , 500.00, 1, "abc", "abc",0));
-        v1.agregarPlato(new Comida(1, false, false , 500.00, 1, "abc", "abc",0));
-        //int tamano, double volumen, int id, String nombre, String descripcion, double precio
-        v1.agregarPlato(new BebidaSinAlcohol(1, 100.00, 15 , "agua", "aguacristalina",20.00));
-        //int tamano, double volumen, int id, String nombre, String descripcion, double precio
-        v1.agregarPlato(new BebidaAlcoholica(1, 200.00, 12, "cerveza", "cervezafria", 200.00));
-       
-        List<ItemMenu> bebidas = gestorVendedor.getItemComidas(v1);
-        List<ItemMenu> comidas = gestorVendedor.getItemComidas(v1);
         
+        
+        Categoria cat1= new Categoria(1,"Carnes",Item.Plato);
+        Categoria cat2= new Categoria(2,"Verduras",Item.Plato);
+        Categoria cat3= new Categoria(3,"SinGas",Item.Bebida);
+
+
+
+        Plato plato1 = new Plato(1, "Pollo al disco", "pollo en un disco", 8000.00, 200, true, false,cat1,800.00);
+        Plato plato2 = new Plato(2, "Carne asada", "Carne asada", 9000.00, 200, true, false,cat1,700.00);
+        Plato plato3 = new Plato(3, "Hamburgesa vegana", "De lentejas", 10000.00, 50, true, true,cat2,500.00);
+
+        BebidaSinAlcohol bebida1= new BebidaSinAlcohol(1,"Agua","Agua de manantial", 1000.00, cat3,Tamano.Chica, 500);
+        BebidaAlcoholica bebida2= new BebidaAlcoholica(2,"Fernet","Fernet Branca", 15000.00, cat3,Tamano.Mediana, 1000,45);
+
+        v1.agregarItem(plato1);
+        v1.agregarItem(plato2);
+        v1.agregarItem(plato3);
+        v1.agregarItem(bebida1);
+        v1.agregarItem(bebida2);
+
+        List<ItemMenu> bebidas = gestorVendedor.getItemBebidas(v1);
+        List<ItemMenu> comidas = gestorVendedor.getItemComidas(v1);
+        List<ItemMenu> comidasVeganas = gestorVendedor.getItemComidasVeganas(v1);
+        List<ItemMenu> bebidasSinAlcohol = gestorVendedor.getItemBebidasSinAlcohol(v1);
+        
+
         
         //mostrando bebidas y comidas
         System.out.println("Mostrando Bebidas");
         bebidas.forEach(bebida -> System.out.println(bebida));
+
         System.out.println("Mostrando Comidas");
         comidas.forEach(comida -> System.out.println(comida));
+
+        System.out.println("Mostrando Comidas Veganas");
+        comidasVeganas.forEach(comidaV -> System.out.println(comidasVeganas));
+
+        System.out.println("Mostrando Bebidas Sin Alcohol");
+        bebidasSinAlcohol.forEach(bebidaSA -> System.out.println(bebidasSinAlcohol));
         
     }
 }

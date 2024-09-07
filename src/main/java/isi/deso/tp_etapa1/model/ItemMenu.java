@@ -21,4 +21,10 @@ public abstract class ItemMenu {
 
     public abstract boolean aptoVegano();
 
+    public abstract boolean esBebidaNoAlcoholica();
+
+    @Override
+    public String toString() {
+        return "ItemMenu{id=" + this.id + ", nombre='" + this.nombre + "'}";
+    }
 }
