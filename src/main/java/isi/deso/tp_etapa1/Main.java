@@ -3,11 +3,9 @@
  */
 package isi.deso.tp_etapa1;
 
-import isi.deso.tp_etapa1.model.Cliente;
-import isi.deso.tp_etapa1.model.Coordenada;
-import isi.deso.tp_etapa1.model.Vendedor;
 import isi.deso.tp_etapa1.service.GestorCliente;
 import isi.deso.tp_etapa1.service.GestorVendedor;
+import isi.deso.tp_etapa1.model.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,6 +93,27 @@ public class Main {
 
         // Mostrando clientes
         listaClientes.forEach(cliente -> System.out.println(cliente));
-
+        
+        
+        
+        //int calorias, boolean aptoCeliaco, boolean aptoVegano, double peso, int id, String nombre, String descripcion, double precio
+        //agregando itemMenu a un vendedor existente
+        v1.agregarPlato(new Comida(1, false, false , 500.00, 1, "abc", "abc",0));
+        v1.agregarPlato(new Comida(1, false, false , 500.00, 1, "abc", "abc",0));
+        //int tamano, double volumen, int id, String nombre, String descripcion, double precio
+        v1.agregarPlato(new BebidaSinAlcohol(1, 100.00, 15 , "agua", "aguacristalina",20.00));
+        //int tamano, double volumen, int id, String nombre, String descripcion, double precio
+        v1.agregarPlato(new BebidaAlcoholica(1, 200.00, 12, "cerveza", "cervezafria", 200.00));
+       
+        List<ItemMenu> bebidas = gestorVendedor.getItemComidas(v1);
+        List<ItemMenu> comidas = gestorVendedor.getItemComidas(v1);
+        
+        
+        //mostrando bebidas y comidas
+        System.out.println("Mostrando Bebidas");
+        bebidas.forEach(bebida -> System.out.println(bebida));
+        System.out.println("Mostrando Comidas");
+        comidas.forEach(comida -> System.out.println(comida));
+        
     }
 }

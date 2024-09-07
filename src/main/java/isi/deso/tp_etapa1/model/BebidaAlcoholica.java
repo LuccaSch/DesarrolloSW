@@ -8,10 +8,14 @@ public class BebidaAlcoholica extends Bebida {
 
     private int graduacionAlcoholica;
 
-    public BebidaAlcoholica(int tamano, double volumen) {
+    public BebidaAlcoholica(int tamano, double volumen, int id, String nombre, String descripcion, double precio) {
         this.volumen = volumen;
         this.tamano = tamano;
         this.peso = volumen * 0.99;
+        this.id=id;
+        this.nombre=nombre;
+        this.descripcion=descripcion;
+        this.precio=precio;
     }
 
     public BebidaAlcoholica(int graduacionAlcoholica) {

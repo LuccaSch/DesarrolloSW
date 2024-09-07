@@ -13,11 +13,16 @@ public class Comida extends ItemMenu {
     public Comida() {
     }
 
-    public Comida(int calorias, boolean aptoCeliaco, boolean aptoVegano, double peso) {
+    public Comida(int calorias, boolean aptoCeliaco, boolean aptoVegano, double peso, int id, String nombre, String descripcion, double precio) {
         this.calorias = calorias;
         this.aptoCeliaco = aptoCeliaco;
         this.aptoVegano = aptoVegano;
         this.peso = peso;
+        this.id=id;
+        this.nombre=nombre;
+        this.descripcion=descripcion;
+        this.precio=precio;
+        
     }
 
     @Override

@@ -12,7 +12,7 @@ public abstract class ItemMenu {
     protected double precio;
     protected Categoria categoria;
     protected double peso;
-
+    
     public abstract double peso();
 
     public abstract boolean esBebida();

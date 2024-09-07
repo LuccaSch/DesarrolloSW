@@ -78,7 +78,11 @@ public class Vendedor {
     public String toString() {
         return "Vendedor{id=" + this.id + ", nombre='" + this.nombre + "'}";
     }
-
+    
+    public void agregarMenu(List<ItemMenu> item){
+        this.menu=item;
+    }
+    
     public List<ItemMenu> getMenu() {
         return this.menu;
     }
