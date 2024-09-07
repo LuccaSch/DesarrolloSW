@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Vendedor {
 
-    // Atributos
+    // Atributos propios
     private int id;
     private String nombre;
     private String direccion;
@@ -62,7 +62,16 @@ public class Vendedor {
         this.coordenada = coordenada;
     }
 
-    // Calculo de distancia, con lat y long en radianes
+    public void agregarMenu(List<ItemMenu> item) {
+        this.menu = item;
+    }
+
+    public List<ItemMenu> getMenu() {
+        return this.menu;
+    }
+
+    // Otros metodos
+    // Metodo para calculo de distancia, con lat y long en radianes
     public double distancia(Cliente cliente) {
         double radio = 6378;
         double latV = this.coordenada.getLat();
@@ -79,15 +88,8 @@ public class Vendedor {
     public String toString() {
         return "Vendedor{id=" + this.id + ", nombre='" + this.nombre + "'}";
     }
-    
-    public void agregarMenu(List<ItemMenu> item){
-        this.menu=item;
-    }
-    
-    public List<ItemMenu> getMenu() {
-        return this.menu;
-    }
 
+    // Metodo para agregar un item al menu del vendedor
     public void agregarItem(ItemMenu item) {
         menu.add(item);
     }

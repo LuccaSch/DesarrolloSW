@@ -4,11 +4,7 @@
  */
 package isi.deso.tp_etapa1.model;
 
-/**
- *
- * @author Nacho
- */
 public enum Item {
-    Bebida, 
+    Bebida,
     Plato
 }

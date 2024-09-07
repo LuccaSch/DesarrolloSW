@@ -6,10 +6,11 @@ package isi.deso.tp_etapa1.model;
 
 public abstract class Bebida extends ItemMenu {
 
+    // Atributos propios
     protected Tamano tamano;
     protected double volumen;
 
-
+    // Metodos
     @Override
     public boolean esBebida() {
         return true;

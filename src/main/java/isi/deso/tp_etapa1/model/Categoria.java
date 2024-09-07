@@ -6,18 +6,22 @@ package isi.deso.tp_etapa1.model;
 
 public class Categoria {
 
+    // Atributos propios
     private int id;
     private String descripcion;
     private Item tipo_item;
-    
-    public Categoria(){}
-    
-    public Categoria(int id, String desc, Item tipo_item){
-        this.id = id;
-        this.descripcion = desc;
-        this.tipo_item=tipo_item;
+
+    // Constructores
+    public Categoria() {
     }
 
+    public Categoria(int id, String desc, Item tipo_item) {
+        this.id = id;
+        this.descripcion = desc;
+        this.tipo_item = tipo_item;
+    }
+
+    // getters\setters
     public int getId() {
         return id;
     }

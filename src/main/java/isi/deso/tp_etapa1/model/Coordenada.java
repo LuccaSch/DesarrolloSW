@@ -6,7 +6,7 @@ package isi.deso.tp_etapa1.model;
 
 public class Coordenada {
 
-    // Atributos
+    // Atributos propios
     private double lat;
     private double lgn;
 
@@ -36,11 +36,13 @@ public class Coordenada {
         this.lgn = lgn;
     }
 
+    // Otros metodos
     @Override
     public String toString() {
         return "Coordenada{" + "lat=" + lat + ", lgn=" + lgn + '}';
     }
 
+    // Metodo para saber si la coordenada es igual a otra coordenada c
     public boolean equals(Coordenada c) {
         if (c == null) {
             return false;
@@ -48,5 +50,4 @@ public class Coordenada {
         return (c == this || (this.lat == c.lat && this.lgn == c.lgn));
     }
 
-    
 }

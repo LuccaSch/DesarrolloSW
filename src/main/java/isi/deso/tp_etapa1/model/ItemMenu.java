@@ -6,13 +6,14 @@ package isi.deso.tp_etapa1.model;
 
 public abstract class ItemMenu {
 
+    // Atributos propios
     protected int id;
     protected String nombre;
     protected String descripcion;
     protected double precio;
     protected Categoria categoria;
     protected double peso;
-    
+
     public abstract double peso();
 
     public abstract boolean esBebida();
@@ -21,8 +22,11 @@ public abstract class ItemMenu {
 
     public abstract boolean aptoVegano();
 
-    public abstract boolean esBebidaNoAlcoholica();
+    public boolean esBebidaNoAlcoholica() {
+        return false;
+    }
 
+    // Otros metodos
     @Override
     public String toString() {
         return "ItemMenu{id=" + this.id + ", nombre='" + this.nombre + "'}";

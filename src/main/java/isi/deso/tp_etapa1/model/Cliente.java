@@ -6,7 +6,7 @@ package isi.deso.tp_etapa1.model;
 
 public class Cliente {
 
-    // Atributos
+    // Atributos propios
     private int id;
     private String nombre;
     private String cuit;
@@ -76,6 +76,7 @@ public class Cliente {
         this.coordenada = coordenada;
     }
 
+    // Otros metodos
     @Override
     public String toString() {
         return "Cliente{id=" + this.id + ", nombre='" + this.nombre + "'}";

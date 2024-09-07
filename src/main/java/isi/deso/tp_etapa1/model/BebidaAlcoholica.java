@@ -6,28 +6,31 @@ package isi.deso.tp_etapa1.model;
 
 public class BebidaAlcoholica extends Bebida {
 
-    //atributos heredados:
-    //ItemMenu {int id, String nombre, String descripcion, double precio, Categoria categoria,double peso} 
-    //Bebida {int tamano double volumen}
+    // Atributos propios
     private int graduacionAlcoholica;
-   
-    public BebidaAlcoholica(int id, String nombre, String descripcion, double precio, Categoria categoria,Tamano tamano, double volumen,int graduacionAlcoholica) {
-        this.id=id;
-        this.nombre=nombre;
-        this.descripcion=descripcion;
-        this.precio=precio;
-        this.categoria=categoria;
-        
+
+    // Constructores
+    public BebidaAlcoholica() {
+    }
+
+    public BebidaAlcoholica(int id, String nombre, String descripcion, double precio, Categoria categoria, Tamano tamano, double volumen, int graduacionAlcoholica) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.categoria = categoria;
+
         this.volumen = volumen;
         this.peso = volumen * 0.99;
         this.tamano = tamano;
-        this.graduacionAlcoholica=graduacionAlcoholica;
+        this.graduacionAlcoholica = graduacionAlcoholica;
     }
 
     public BebidaAlcoholica(int graduacionAlcoholica) {
         this.graduacionAlcoholica = graduacionAlcoholica;
     }
 
+    // getters\setters
     public int getGraduacionAlcoholica() {
         return graduacionAlcoholica;
     }
@@ -36,12 +39,10 @@ public class BebidaAlcoholica extends Bebida {
         this.graduacionAlcoholica = graduacionAlcoholica;
     }
 
+    // Otros metodos
     @Override
     public double peso() {
         return peso * 1.2;
     }
-
-    @Override
-    public boolean esBebidaNoAlcoholica(){return false;}
 
 }
