@@ -140,9 +140,41 @@ public class Main {
                 System.out.print("a la mierda");
             }
             for (ItemPedido i : aver) {
-      System.out.println("vendedor:" +i.getVendedor());
-    }
-            
-           
+              System.out.println("vendedor:" +i.getVendedor());
+            }
+      //buscar por cliente
+      List<ItemPedido> = new ArrayList<>(); 
+      try{
+        clientes1 = detalleP.filterClienteId(4); 
+      }catch(ItemNoEncontradoException e){
+      System.out.println("cliente no encontrado");  
+      }
+      for(ItemPedido i: clientes1) System.out.println("Clliente: "+i.getCliente());
+    
+      //oredenar por precio
+      List<ItemPedido> listaOrdenada = new ArrayList<>();
+      try{
+        listaOrdenada = detalleP.ordenarPorPrecio();
+      }catch(ItemNoEncontradoException e){
+        System.out.println("Ningun producto cargado")
+      }
+      for(ItemPedido i: listaOrdenada) System.out.println("Precio "+i" :"+i.getPrecio());
+
+      //ordenar por cantidad
+      try{
+        listaOrdenada = detalleP.ordenarPorCantidad();
+      }catch(ItemNoEncontradoException e){
+        System.out.println("Ningun producto cargado")
+      }
+      for(ItemPedido i: listaOrdenada) System.out.println("Cantidad "+i" :"+i.getCantidad());
+      
+      //filtrar por rango de precio
+      List<ItemPedido> filtradoPrecio = new ArrayList<>();
+      try{
+        filtradoPrecio = detalleP.buscarPorRangoDePrecio(2000, 3000);
+      }catch(ItemNoEncontradoException e){
+        System.out.println("no hay productos en ese rango de precio");
+      }
+      for(ItemPedido i: filtradoPrecio) System.out.println("Precio: "+i.getPrecio());
 }
 }
