@@ -1,5 +1,4 @@
 # DesarrolloSW
-<<<<<<< HEAD
 
 TP Integrador: Aplicación de delivery.
 
@@ -23,5 +22,3 @@ y la forma de pago. El precio de un pedido se calculará diferente según la for
 
 ![TP Etapa 2 Modelo de Datos](https://github.com/user-attachments/assets/fc99e407-cd8b-4ae9-b440-06ea11daccff)
 
-=======
->>>>>>> main
