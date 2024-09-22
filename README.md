@@ -20,5 +20,6 @@ y la forma de pago. El precio de un pedido se calculará diferente según la for
 
 # Modelo de Datos
 
-![TP Etapa 2 Modelo de Datos](https://github.com/user-attachments/assets/fc99e407-cd8b-4ae9-b440-06ea11daccff)
 
+
+![TP Etapa 3 Modelo de Datos](https://github.com/user-attachments/assets/5b38601b-8b6f-4330-bf4c-c59d78feab77)
