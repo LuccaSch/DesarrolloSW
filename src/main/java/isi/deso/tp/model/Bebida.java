@@ -6,8 +6,14 @@ package isi.deso.tp.model;
 
 public abstract class Bebida extends ItemMenu {
 
-    protected int tamano;
+    protected Tamano tamano;
     protected double volumen;
+
+    public Bebida(Tamano tamano, double volumen, int id, String nombre, String descripcion, double precio, Categoria categoria, double peso, Vendedor vendedor) {
+        super(id, nombre, descripcion, precio, categoria, peso, vendedor);
+        this.tamano = tamano;
+        this.volumen = volumen;
+    }
 
     @Override
     public boolean esBebida() {
@@ -26,7 +32,7 @@ public abstract class Bebida extends ItemMenu {
 
     public abstract boolean esBebidaAlcoholica();
 
-    public int getTamano() {
+    public Tamano getTamano() {
         return tamano;
     }
 
@@ -34,12 +40,17 @@ public abstract class Bebida extends ItemMenu {
         return volumen;
     }
 
-    public void setTamano(int tamano) {
+    public void setTamano(Tamano tamano) {
         this.tamano = tamano;
     }
 
     public void setVolumen(double volumen) {
         this.volumen = volumen;
+    }
+
+    @Override
+    public String toString() {
+        return "Bebida{" + "tamano=" + tamano + ", volumen=" + volumen + '}';
     }
 
 }

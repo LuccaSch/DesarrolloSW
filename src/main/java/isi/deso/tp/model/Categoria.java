@@ -18,17 +18,21 @@ public class Categoria {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getDescripcion() {
         return descripcion;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Categoria{" + "id=" + id + ", descripcion=" + descripcion + '}';
+    }
+
 }

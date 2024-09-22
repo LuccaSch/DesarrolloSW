@@ -8,17 +8,11 @@ import java.util.*;
 
 public class Vendedor {
 
-    // Atributos
     private int id;
     private String nombre;
     private String direccion;
     private Coordenada coordenada;
     private List<ItemMenu> menu;
-
-    // Constructores
-    public Vendedor() {
-        this.menu = new ArrayList<>();
-    }
 
     public Vendedor(int id, String nombre, String direccion, Coordenada coordenada) {
         this.id = id;
@@ -28,40 +22,47 @@ public class Vendedor {
         this.menu = new ArrayList<>();
     }
 
-    // getters\setters
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public String getDireccion() {
         return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
     }
 
     public Coordenada getCoordenada() {
         return coordenada;
     }
 
+    public List<ItemMenu> getMenu() {
+        return menu;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
     public void setCoordenada(Coordenada coordenada) {
         this.coordenada = coordenada;
     }
 
-    // Calculo de distancia, con lat y long en radianes
+    public void setMenu(List<ItemMenu> menu) {
+        this.menu = menu;
+    }
+
+    // Calculo de distancia, con latitud y longitud en radianes
     public double distancia(Cliente cliente) {
         double radio = 6378;
         double latV = this.coordenada.getLat();
@@ -76,14 +77,10 @@ public class Vendedor {
 
     @Override
     public String toString() {
-        return "Vendedor{id=" + this.id + ", nombre='" + this.nombre + "'}";
+        return "Vendedor{" + "id=" + id + ", nombre=" + nombre + ", direccion=" + direccion + ", coordenada=" + coordenada + ", menu=" + menu + '}';
     }
 
-    public List<ItemMenu> getMenu() {
-        return this.menu;
-    }
-
-    public void agregarPlato(ItemMenu item) {
+    public void addItemMenu(ItemMenu item) {
         menu.add(item);
     }
 

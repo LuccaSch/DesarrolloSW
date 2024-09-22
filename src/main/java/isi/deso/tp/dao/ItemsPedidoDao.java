@@ -10,15 +10,17 @@ import java.util.List;
 
 public interface ItemsPedidoDao {
 
-    public List<ItemPedido> filtrarPorVendedor(int idVendedor) throws ItemNoEncontradoException;
+    public List<ItemPedido> getLista();
 
-    public List<ItemPedido> filtrarPorCliente(int idCliente) throws ItemNoEncontradoException;
+    public void setLista(List<ItemPedido> listaItemPedidos);
+
+    public List<ItemPedido> filtrarPorIdCliente(int idCliente) throws ItemNoEncontradoException;
 
     public List<ItemPedido> ordenarPorPrecio() throws ItemNoEncontradoException;
 
     public List<ItemPedido> ordenarPorCantidad() throws ItemNoEncontradoException;
 
-    public List<ItemPedido> buscarPorRestaurante(int idVendedor) throws ItemNoEncontradoException;
+    public List<ItemPedido> buscarPorIdRestaurante(int idVendedor) throws ItemNoEncontradoException;
 
     public List<ItemPedido> buscarPorRangoDePrecio(double precioMin, double precioMax) throws ItemNoEncontradoException;
 

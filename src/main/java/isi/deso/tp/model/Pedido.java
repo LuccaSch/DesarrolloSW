@@ -4,13 +4,10 @@
  */
 package isi.deso.tp.model;
 
-
 public class Pedido {
+
     private Cliente cliente;
     private int id;
-
-    public Pedido() {
-    }
 
     public Pedido(Cliente cliente, int id) {
         this.cliente = cliente;
@@ -32,7 +29,10 @@ public class Pedido {
     public void setId(int id) {
         this.id = id;
     }
-   
 
- 
+    @Override
+    public String toString() {
+        return "Pedido{" + "cliente=" + cliente.getId() + ", id=" + id + '}';
+    }
+
 }

@@ -5,29 +5,24 @@
 package isi.deso.tp.model;
 
 public abstract class ItemMenu {
-    protected Vendedor vendedor;
+
     protected int id;
     protected String nombre;
     protected String descripcion;
     protected double precio;
     protected Categoria categoria;
     protected double peso;
+    protected Vendedor vendedor;
 
-    public Vendedor getVendedor() {
-        return vendedor;
-    }
-
-    public void setVendedor(Vendedor vendedor) {
+    public ItemMenu(int id, String nombre, String descripcion, double precio, Categoria categoria, double peso, Vendedor vendedor) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.categoria = categoria;
+        this.peso = peso;
         this.vendedor = vendedor;
     }
-
-    public abstract double peso();
-
-    public abstract boolean esBebida();
-
-    public abstract boolean esComida();
-
-    public abstract boolean aptoVegano();
 
     public int getId() {
         return id;
@@ -53,6 +48,10 @@ public abstract class ItemMenu {
         return peso;
     }
 
+    public Vendedor getVendedor() {
+        return vendedor;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -75,6 +74,23 @@ public abstract class ItemMenu {
 
     public void setPeso(double peso) {
         this.peso = peso;
+    }
+
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
+    }
+
+    public abstract double peso();
+
+    public abstract boolean esBebida();
+
+    public abstract boolean esComida();
+
+    public abstract boolean aptoVegano();
+
+    @Override
+    public String toString() {
+        return "ItemMenu{" + "id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", precio=" + precio + ", categoria=" + categoria + ", peso=" + peso + ", vendedor=" + vendedor.getId() + '}';
     }
 
 }

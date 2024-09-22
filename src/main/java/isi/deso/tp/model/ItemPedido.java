@@ -6,24 +6,18 @@ package isi.deso.tp.model;
 
 public class ItemPedido {
 
-    public Pedido getPedido() {
-        return pedido;
-    }
-
-    public void setPedido(Pedido pedido) {
-        this.pedido = pedido;
-    }
-
     private int id;
     private ItemMenu itemMenu;
     private int cantidad;
     private double precio;
     private Pedido pedido;
-    public ItemPedido(int id, ItemMenu itemMenu, int cantidad, double precio) {
+
+    public ItemPedido(int id, ItemMenu itemMenu, int cantidad, double precio, Pedido pedido) {
         this.id = id;
         this.itemMenu = itemMenu;
         this.cantidad = cantidad;
-        this.precio = cantidad * itemMenu.getPrecio();
+        this.precio = precio;
+        this.pedido = pedido;
     }
 
     public int getId() {
@@ -33,18 +27,25 @@ public class ItemPedido {
     public ItemMenu getItemMenu() {
         return itemMenu;
     }
- public Vendedor getVendedor() {
+
+    public Vendedor getVendedor() {
         return this.itemMenu.getVendedor();
     }
-  public Cliente getCliente() {
+
+    public Cliente getCliente() {
         return this.pedido.getCliente();
     }
+
     public int getCantidad() {
         return cantidad;
     }
 
     public double getPrecio() {
         return precio;
+    }
+
+    public Pedido getPedido() {
+        return pedido;
     }
 
     public void setId(int id) {
@@ -61,6 +62,15 @@ public class ItemPedido {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
+
+    @Override
+    public String toString() {
+        return "ItemPedido{" + "id=" + id + ", itemMenu=" + itemMenu.getId() + ", idVendedor del itemMenu=" + itemMenu.getVendedor().getId() + ", cantidad=" + cantidad + ", precio=" + precio + ", pedido=" + pedido.getId() + ", idCliente del pedido=" + pedido.getCliente().getId() + '}';
     }
 
 }

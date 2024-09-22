@@ -8,19 +8,8 @@ public class BebidaAlcoholica extends Bebida {
 
     private int graduacionAlcoholica;
 
-    public BebidaAlcoholica(int tamano, double volumen,int id, String nombre, String descripcion, double precio, Categoria categoria) {
-        this.volumen = volumen;
-        this.tamano = tamano;
-        this.peso = volumen * 0.99;
-         this.id=id;
-        this.nombre=nombre;
-        this.descripcion=descripcion;
-        this.precio=precio;
-        this.categoria=categoria;
-    }
-
-    public BebidaAlcoholica(int graduacionAlcoholica) {
-        this.graduacionAlcoholica = graduacionAlcoholica;
+    public BebidaAlcoholica(Tamano tamano, double volumen, int id, String nombre, String descripcion, double precio, Categoria categoria, double peso, Vendedor vendedor) {
+        super(tamano, volumen, id, nombre, descripcion, precio, categoria, volumen * 0.99, vendedor);
     }
 
     public int getGraduacionAlcoholica() {
@@ -39,6 +28,11 @@ public class BebidaAlcoholica extends Bebida {
     @Override
     public boolean esBebidaAlcoholica() {
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "BebidaAlcoholica{" + "graduacionAlcoholica=" + graduacionAlcoholica + '}';
     }
 
 }

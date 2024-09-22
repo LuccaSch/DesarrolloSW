@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GestorCliente {
-    // Metodos que deberian ser definido dentro de un GestorClientes
+    // Metodos que deberian ser definido dentro de un GestorCliente
 
-    public Cliente crearClientes(int id, String nombre, String cuit, String email, String direccion, Coordenada coordenada) {
+    public Cliente crearCliente(int id, String nombre, String cuit, String email, String direccion, Coordenada coordenada) {
         return new Cliente(id, nombre, cuit, email, direccion, coordenada);
     }
 
     // Filtro de clientes por parametros
-    // Filtro por Id
+    // Filtro por id
     public List<Cliente> filterClienteId(List<Cliente> clientes, int filtroId) {
         List<Cliente> clientesAux = new ArrayList<>();
 
@@ -26,7 +26,7 @@ public class GestorCliente {
         return clientesAux;
     }
 
-    // Filtro por Nombre
+    // Filtro por nombre
     public List<Cliente> filterClienteNombre(List<Cliente> clientes, String filtroNombre) {
         List<Cliente> clientesAux = new ArrayList<>();
 
@@ -40,17 +40,17 @@ public class GestorCliente {
     }
 
     // Eliminacion de clientes por parametros
-    // Eliminacion de Cliente por Id
+    // Eliminacion de Cliente por id
     public void deleteClienteId(List<Cliente> clientes, int filtroId) {
         clientes.removeIf(cliente -> cliente.getId() == filtroId);
     }
 
-    // Eliminacion de Cliente por Nombre
+    // Eliminacion de Cliente por nombre
     public void deleteClienteNombre(List<Cliente> clientes, String filtroNombre) {
         clientes.removeIf(cliente -> cliente.getNombre().equals(filtroNombre));
     }
 
-    // Eliminacion de Cliente pasando la Posicion del arreglo de vendedores que se quiere eliminar
+    // Eliminacion de Cliente pasando la posicion del arreglo de vendedores que se quiere eliminar
     public void deleteClientePorPosicion(List<Cliente> clientes, int posicion) {
         clientes.remove(posicion);
 
