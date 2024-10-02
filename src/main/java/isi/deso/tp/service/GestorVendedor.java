@@ -1,21 +1,22 @@
 package isi.deso.tp.service;
 
-import isi.deso.tp.model.Bebida;
-import isi.deso.tp.model.Coordenada;
-import isi.deso.tp.model.ItemMenu;
-import isi.deso.tp.model.Vendedor;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GestorVendedor {
-    // Metodos que deberian ser definido dentro de un GestorVendedor
+import isi.deso.tp.model.Coordenada;
+import isi.deso.tp.model.Vendedor;
 
+public class GestorVendedor {
+    public Vendedor crearVendedor() {
+        return new Vendedor();
+    }
     public Vendedor crearVendedor(int id, String nombre, String direccion, Coordenada c) {
         return new Vendedor(id, nombre, direccion, c);
     }
 
     // Filtro de vendedores por parametros
-    // Filtro por id
+
+    // Filtro por Id
     public List<Vendedor> filterVendedoresId(List<Vendedor> vendedores, int filtroId) {
         List<Vendedor> vendedoresAux = new ArrayList<>();
 
@@ -28,7 +29,7 @@ public class GestorVendedor {
         return vendedoresAux;
     }
 
-    // Filtro por nombre
+    // Filtro por Nombre
     public List<Vendedor> filterVendedoresNombre(List<Vendedor> vendedores, String filtroNombre) {
         List<Vendedor> vendedoresAux = new ArrayList<>();
 
@@ -42,12 +43,13 @@ public class GestorVendedor {
     }
 
     // Eliminacion de vendedores por parametros
-    // Eliminacion de vendedores por id
+
+    // Eliminacion de vendedores por Id
     public void deleteVendedoresId(List<Vendedor> vendedores, int filtroId) {
         vendedores.removeIf(vendedor -> vendedor.getId() == filtroId);
     }
 
-    // Eliminacion de vendedores por nombre
+    // Eliminacion de vendedores por Nombre
     public void deleteVendedoresNombre(List<Vendedor> vendedores, String filtroString) {
         vendedores.removeIf(vendedor -> vendedor.getNombre().equals(filtroString));
     }
@@ -56,60 +58,4 @@ public class GestorVendedor {
     public void deleteVendedoresPosicion(List<Vendedor> vendedores, int posicion) {
         vendedores.remove(posicion);
     }
-
-    // getters
-    public List<ItemMenu> getItemBebidas(Vendedor vendedor) {
-        List<ItemMenu> menuVendedor = vendedor.getMenu();
-        List<ItemMenu> aux = new ArrayList<>();
-
-        for (ItemMenu item : menuVendedor) {
-            if (item.esBebida()) {
-                aux.add(item);
-            }
-        }
-
-        return aux;
-    }
-
-    public List<ItemMenu> getItemComidas(Vendedor vendedor) {
-        List<ItemMenu> menuVendedor = vendedor.getMenu();
-        List<ItemMenu> aux = new ArrayList<>();
-
-        for (ItemMenu item : menuVendedor) {
-            if (item.esComida()) {
-                aux.add(item);
-            }
-        }
-
-        return aux;
-
-    }
-
-    public List<ItemMenu> getItemComidasVeganas(Vendedor vendedor) {
-        List<ItemMenu> menuVendedor = vendedor.getMenu();
-        List<ItemMenu> aux = new ArrayList<>();
-
-        for (ItemMenu item : menuVendedor) {
-            if (item.esComida() && item.aptoVegano()) {
-                aux.add(item);
-            }
-        }
-
-        return aux;
-
-    }
-
-    public List<ItemMenu> getItemBebidasSinAlcohol(Vendedor vendedor) {
-        List<ItemMenu> menuVendedor = vendedor.getMenu();
-        List<ItemMenu> aux = new ArrayList<>();
-
-        for (ItemMenu item : menuVendedor) {
-            if (item.esBebida() && ((Bebida) item).esBebidaAlcoholica()) {
-                aux.add(item);
-            }
-        }
-
-        return aux;
-    }
-
 }

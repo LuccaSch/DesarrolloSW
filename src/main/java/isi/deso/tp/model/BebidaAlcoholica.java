@@ -1,17 +1,50 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package isi.deso.tp.model;
 
 public class BebidaAlcoholica extends Bebida {
 
+    /* 
+    @Override
+    Atributos heredados de itemMenu:
+    
+    protected int id;
+    protected Vendedor vendedor;
+    protected String nombre;
+    protected String descripcion;
+    protected double precio;
+    protected Categoria categoria;
+    protected double peso;
+    
+
+    Atributos heredados de bebida:
+
+    protected int tamano;
+    protected double volumen;
+    */
+
+
+    
+    // Atributos
     private int graduacionAlcoholica;
 
-    public BebidaAlcoholica(Tamano tamano, double volumen, int id, String nombre, String descripcion, double precio, Categoria categoria, double peso, Vendedor vendedor) {
-        super(tamano, volumen, id, nombre, descripcion, precio, categoria, volumen * 0.99, vendedor);
+
+
+    // Constructores
+
+    public BebidaAlcoholica(){}
+
+    public BebidaAlcoholica(int id,String nombre,String descripcion,double precio,Categoria categoria,double volumen,int tamano,int graduacionAlcoholica){
+        this.volumen = volumen;
+        this.tamano = tamano;
+        this.peso = volumen * 0.99;
+        this.id=id;
+        this.nombre=nombre;
+        this.descripcion=descripcion;
+        this.precio=precio;
+        this.categoria=categoria;
+        this.graduacionAlcoholica=graduacionAlcoholica;
     }
 
+    // getters\setters
     public int getGraduacionAlcoholica() {
         return graduacionAlcoholica;
     }
@@ -20,19 +53,10 @@ public class BebidaAlcoholica extends Bebida {
         this.graduacionAlcoholica = graduacionAlcoholica;
     }
 
+    //Reescribiendo metodos heredados
+
     @Override
     public double peso() {
         return peso * 1.2;
     }
-
-    @Override
-    public boolean esBebidaAlcoholica() {
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "BebidaAlcoholica{" + "graduacionAlcoholica=" + graduacionAlcoholica + '}';
-    }
-
 }

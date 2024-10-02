@@ -1,35 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package isi.deso.tp.service;
 
-import isi.deso.tp.dao.ItemsPedidoDao;
-import isi.deso.tp.dao.ItemsPedidoMemory;
+import isi.deso.tp.dao.ItemsPedidoDAO;
+import isi.deso.tp.dao.ItemsPedidoFactoryDAO;
 import isi.deso.tp.exception.ItemNoEncontradoException;
 import isi.deso.tp.model.ItemPedido;
 import isi.deso.tp.model.Pedido;
 import java.util.List;
 
-/**
- *
- * @author franciscokuchen
- */
 public class GestorItemPedido {
 
-    private ItemsPedidoDao itemsPedidoDao = new ItemsPedidoMemory();
+    private ItemsPedidoFactoryDAO itemsPedidoMemoryDAO = ItemsPedidoFactoryDAO.getFactory(ItemsPedidoFactoryDAO.MEMORY_FACTORY);
 
-    // Metodos que deberian ser definido dentro de un GestorPedido
-    public void setLista(List<ItemPedido> itemsPedido) {
-        this.itemsPedidoDao.setLista(itemsPedido);
-    }
+    private ItemsPedidoDAO itemsPedidoDao = itemsPedidoMemoryDAO.getUsuarioDao();
 
-    // Filtro de itemPedidos por parametros
-    // Filtro por Id
-    public List<ItemPedido> filterClienteId(int idCliente) {
+    public List<ItemPedido> filtrarPorVendedor(int idVendedor) {
         List<ItemPedido> listaFiltrada = null;
         try {
-            listaFiltrada = itemsPedidoDao.filtrarPorIdCliente(idCliente);
+            listaFiltrada = itemsPedidoDao.filtrarPorVendedor(idVendedor);
         } catch (ItemNoEncontradoException excep) {
             System.err.println(excep.getMessage());
 
@@ -38,8 +25,6 @@ public class GestorItemPedido {
         return listaFiltrada;
     }
 
-    // Ordenacion de itemPedidos por parametros
-    // Ordenacion por precio
     public List<ItemPedido> ordenarPorPrecio() {
         List<ItemPedido> listaOrdenada = null;
         try {
@@ -50,7 +35,6 @@ public class GestorItemPedido {
         return listaOrdenada;
     }
 
-    // Ordenacion por cantidad
     public List<ItemPedido> ordenarPorCantidad() {
         List<ItemPedido> listaOrdenada = null;
         try {
@@ -62,12 +46,10 @@ public class GestorItemPedido {
         return listaOrdenada;
     }
 
-    // Busqueda de itemPedidos por parametros
-    // Busqueda de Restaurante por id
-    public List<ItemPedido> buscarPorRestauranteId(int idRestaurante) {
+    public List<ItemPedido> buscarPorRestaurante(int idRestaurante) {
         List<ItemPedido> listaBusqueda = null;
         try {
-            listaBusqueda = itemsPedidoDao.buscarPorIdRestaurante(idRestaurante);
+            listaBusqueda = itemsPedidoDao.buscarPorRestaurante(idRestaurante);
         } catch (ItemNoEncontradoException excep) {
             System.err.println(excep.getMessage());
 
@@ -76,7 +58,6 @@ public class GestorItemPedido {
         return listaBusqueda;
     }
 
-    // Busqueda de itemPedido por rango de precio
     public List<ItemPedido> buscarPorRangoDePrecio(double precioMin, double precioMax) {
         List<ItemPedido> listaFiltrada = null;
         try {
@@ -88,8 +69,7 @@ public class GestorItemPedido {
         return listaFiltrada;
     }
 
-    // Eliminacion de pedidos por parametros
-    // Eliminacion de Pedido por id
+    // Eliminacion de Pedido por Id
     public void deletePedidoPorId(List<Pedido> pedidos, int idPedido) {
         pedidos.remove(idPedido);
         pedidos.removeIf(pedido -> pedido.getId() == idPedido);
