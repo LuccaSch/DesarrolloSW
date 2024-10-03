@@ -1,17 +1,17 @@
 package isi.deso.tp.service;
 
-import isi.deso.tp.dao.ItemsPedidoDAO;
-import isi.deso.tp.dao.ItemsPedidoFactoryDAO;
+import java.util.List;
+
+import isi.deso.tp.dao.ItemsPedidoDao;
+import isi.deso.tp.dao.ItemsPedidoMemory;
 import isi.deso.tp.exception.ItemNoEncontradoException;
 import isi.deso.tp.model.ItemPedido;
 import isi.deso.tp.model.Pedido;
-import java.util.List;
+
 
 public class GestorItemPedido {
 
-    private ItemsPedidoFactoryDAO itemsPedidoMemoryDAO = ItemsPedidoFactoryDAO.getFactory(ItemsPedidoFactoryDAO.MEMORY_FACTORY);
-
-    private ItemsPedidoDAO itemsPedidoDao = itemsPedidoMemoryDAO.getUsuarioDao();
+    private final ItemsPedidoDao itemsPedidoDao = new ItemsPedidoMemory();
 
     public List<ItemPedido> filtrarPorVendedor(int idVendedor) {
         List<ItemPedido> listaFiltrada = null;
@@ -26,7 +26,7 @@ public class GestorItemPedido {
     }
 
     public List<ItemPedido> ordenarPorPrecio() {
-        List<ItemPedido> listaOrdenada = null;
+        List<ItemPedido> listaOrdenada=null;
         try {
             listaOrdenada = itemsPedidoDao.ordenarPorPrecio();
         } catch (ItemNoEncontradoException excep) {
@@ -36,7 +36,7 @@ public class GestorItemPedido {
     }
 
     public List<ItemPedido> ordenarPorCantidad() {
-        List<ItemPedido> listaOrdenada = null;
+        List<ItemPedido> listaOrdenada=null;
         try {
             listaOrdenada = itemsPedidoDao.ordenarPorCantidad();
         } catch (ItemNoEncontradoException excep) {
@@ -47,7 +47,7 @@ public class GestorItemPedido {
     }
 
     public List<ItemPedido> buscarPorRestaurante(int idRestaurante) {
-        List<ItemPedido> listaBusqueda = null;
+        List<ItemPedido> listaBusqueda=null;
         try {
             listaBusqueda = itemsPedidoDao.buscarPorRestaurante(idRestaurante);
         } catch (ItemNoEncontradoException excep) {
@@ -59,7 +59,7 @@ public class GestorItemPedido {
     }
 
     public List<ItemPedido> buscarPorRangoDePrecio(double precioMin, double precioMax) {
-        List<ItemPedido> listaFiltrada = null;
+        List<ItemPedido> listaFiltrada=null;
         try {
             listaFiltrada = itemsPedidoDao.buscarPorRangoDePrecio(precioMin, precioMax);
         } catch (ItemNoEncontradoException excep) {

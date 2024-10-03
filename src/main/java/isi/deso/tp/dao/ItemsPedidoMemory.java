@@ -1,23 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package isi.deso.tp.dao;
 
-import isi.deso.tp.exception.ItemNoEncontradoException;
-import isi.deso.tp.model.*;
 import java.util.List;
+
+import isi.deso.tp.exception.ItemNoEncontradoException;
+import isi.deso.tp.model.ItemPedido;
 
 public class ItemsPedidoMemory implements ItemsPedidoDao {
 
+    // Atributos que simulan la base de datos
     private List<ItemPedido> listaItemPedidos;
 
-    public ItemsPedidoMemory() {
-    }
 
-    public ItemsPedidoMemory(List<ItemPedido> listaItemPedidos) {
-        this.listaItemPedidos = listaItemPedidos;
-    }
+    // getters\setters 
 
     public List<ItemPedido> getLista() {
         return listaItemPedidos;
@@ -27,27 +21,31 @@ public class ItemsPedidoMemory implements ItemsPedidoDao {
         this.listaItemPedidos = listaItemPedidos;
     }
 
+    
+    //Reescribiendo metodos heredados
     @Override
-    public List<ItemPedido> filtrarPorIdCliente(int idCliente) throws ItemNoEncontradoException {
+    public List<ItemPedido> filtrarPorVendedor(int idVendedor) throws ItemNoEncontradoException {
+
         List<ItemPedido> listaFiltrada = this.getLista().stream()
-                .filter(item -> item.getCliente().getId() == idCliente)
+                .filter(i -> i.getVendedor().getId() == idVendedor).distinct()
                 .toList();
 
         if (listaFiltrada.isEmpty()) {
-            throw new ItemNoEncontradoException("Exception: ItemsPedido vacio para filtrar por Cliente con id: " + idCliente);
+            throw new ItemNoEncontradoException("ItemsPedido vacio para filtrar con vendedor con id: " + idVendedor);
         }
 
         return listaFiltrada;
+
     }
 
     @Override
     public List<ItemPedido> ordenarPorPrecio() throws ItemNoEncontradoException {
         List<ItemPedido> listaOrdenada = this.getLista().stream()
-                .sorted((item1, item2) -> Double.compare(item1.getPrecio(), item2.getPrecio()))
+                .sorted((item1, item2) -> Double.compare(item1.getItemMenu().getPrecio(), item2.getItemMenu().getPrecio()))
                 .toList();
 
         if (listaOrdenada.isEmpty()) {
-            throw new ItemNoEncontradoException("Exception: Lista vacia despues de ordenar por precio");
+            throw new ItemNoEncontradoException("Lista vacia despues de ordenar por precio.");
         }
 
         return listaOrdenada;
@@ -61,7 +59,7 @@ public class ItemsPedidoMemory implements ItemsPedidoDao {
                 .toList();
 
         if (listaOrdenada.isEmpty()) {
-            throw new ItemNoEncontradoException("Exception: Lista vacia despues de ordenar por precio");
+            throw new ItemNoEncontradoException("Lista vacia despues de ordenar por precio.");
         }
 
         return listaOrdenada;
@@ -69,13 +67,13 @@ public class ItemsPedidoMemory implements ItemsPedidoDao {
     }
 
     @Override
-    public List<ItemPedido> buscarPorIdRestaurante(int idVendedor) throws ItemNoEncontradoException {
+    public List<ItemPedido> buscarPorRestaurante(int idVendedor) throws ItemNoEncontradoException {
         List<ItemPedido> listaBusqueda = this.getLista().stream()
                 .filter(item -> item.getVendedor().getId() == idVendedor)
                 .toList();
 
         if (listaBusqueda.isEmpty()) {
-            throw new ItemNoEncontradoException("Exception: Lista vacia despues de buscar por Restaurante");
+            throw new ItemNoEncontradoException("Lista vacia despues de buscar por Restaurante.");
         }
 
         return listaBusqueda;
@@ -89,7 +87,7 @@ public class ItemsPedidoMemory implements ItemsPedidoDao {
                 .toList();
 
         if (listaBusqueda.isEmpty()) {
-            throw new ItemNoEncontradoException("Exception: Lista vacia despues de buscar por rango de precio [" + precioMin + ", " + precioMax + "]");
+            throw new ItemNoEncontradoException("Lista vacia despues de buscar por rango de precio ("+precioMin+","+precioMax);
         }
 
         return listaBusqueda;

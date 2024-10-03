@@ -1,10 +1,12 @@
 package isi.deso.tp.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import isi.deso.tp.exception.EstadoPedidoNoDisponibleExeption;
 import isi.deso.tp.model.estadoPedido.EstadoPedido;
 import isi.deso.tp.model.estadoPedido.Inicializado;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class Pedido {
 
@@ -13,130 +15,108 @@ public class Pedido {
     private Cliente cliente;
     private EstadoPedido estadoPedido;
     private List<ItemPedido> pedidoDetalle;
-    private EstrategiaPago estrategiaPago;
-    private double precioTotal;
+
 
     // Constructores
     public Pedido() {
-        this.id = 0;
-        this.cliente = new Cliente();
-        this.estadoPedido = new Inicializado();
-        this.pedidoDetalle = new ArrayList<>();
-        this.estrategiaPago = null;
-        this.precioTotal = 0.0;
-
+        pedidoDetalle=new ArrayList<>();
+        estadoPedido=new Inicializado();
     }
 
-    public Pedido(int id, Cliente cliente, EstrategiaPago estrategiaPago, double precioTotal) {
-        this.id = id;
+    public Pedido(int id,Cliente cliente) {
         this.cliente = cliente;
-        this.estadoPedido = new Inicializado();
-        this.pedidoDetalle = new ArrayList<>();
-        this.estrategiaPago = estrategiaPago;
-        this.precioTotal = precioTotal;
-
+        this.id = id;
+        pedidoDetalle=new ArrayList<>();
+        estadoPedido=new Inicializado();
     }
 
+
+    
     //Gestion de estadosPedidos
-    public String getEstado() {
+
+    public String getEstado(){
         return estadoPedido.getEstado();
     }
 
     public boolean prepararPedido() {
         try {
             estadoPedido.prepararPedido(this);
-            return true;
+            return true; 
         } catch (EstadoPedidoNoDisponibleExeption e) {
             System.err.println(e.getMessage());
-            return false;
+            return false; 
         }
     }
 
     public boolean enviarPedido() {
         try {
             estadoPedido.enviarPedido(this);
-            return true;
+            return true; 
         } catch (EstadoPedidoNoDisponibleExeption e) {
             System.err.println(e.getMessage());
-            return false;
+            return false; 
         }
     }
 
     public boolean entregarPedido() {
         try {
             estadoPedido.entregarPedido(this);
-            return true;
+            return true; 
         } catch (EstadoPedidoNoDisponibleExeption e) {
             System.err.println(e.getMessage());
-            return false;
+            return false; 
         }
     }
 
     public boolean cancelarPedido() {
         try {
             estadoPedido.cancelarPedido(this);
-            return true;
+            return true; 
         } catch (EstadoPedidoNoDisponibleExeption e) {
             System.err.println(e.getMessage());
-            return false;
+            return false; 
         }
     }
 
-    // getters\setters
-    public int getId() {
+    
+    // getters\setters 
+    public int getId(){
         return id;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public EstadoPedido getEstadoPedido() {
-        return estadoPedido;
-    }
-
-    public List<ItemPedido> getPedidoDetalle() {
-        return pedidoDetalle;
-    }
-
-    public EstrategiaPago getEstrategiaPago() {
-        return estrategiaPago;
-    }
-
-    public double getPrecioTotal() {
-        return precioTotal;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
+
+    public String getEstadoPedido() {
+        return estadoPedido.getEstado();
+    }
+
+    public void setEstadoPedido(EstadoPedido newEstadoPedido){
+        this.estadoPedido= newEstadoPedido;
+    }
+
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
-    public void setEstadoPedido(EstadoPedido estadoPedido) {
-        this.estadoPedido = estadoPedido;
+
+    public List<ItemPedido> getPedidoDetalle(){
+        return this.pedidoDetalle;
     }
 
-    public void setPedidoDetalle(List<ItemPedido> pedidoDetalle) {
-        this.pedidoDetalle = pedidoDetalle;
+    public void setPedidoDetalle(List<ItemPedido> newPedidoDetalle){
+        this.pedidoDetalle=newPedidoDetalle;
     }
 
-    public void setEstrategiaPago(EstrategiaPago estrategiaPago) {
-        this.estrategiaPago = estrategiaPago;
-    }
-
-    public void setPrecioTotal(double precioTotal) {
-        this.precioTotal = precioTotal;
-    }
-
-    public void addPedidoDetalle(ItemPedido newItemPedido) {
+    public void addPedidoDetalle(ItemPedido newItemPedido){
         this.pedidoDetalle.add(newItemPedido);
-    }
-
-    public double realizarPago() {
-        return this.precioTotal + this.estrategiaPago.aplicarRecargo(this.precioTotal);
     }
 
 }

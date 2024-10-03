@@ -21,7 +21,7 @@ public class Inicializado extends EstadoPedido {
 
     @Override
     public void entregarPedido(Pedido pedido) throws EstadoPedidoNoDisponibleExeption {
-        throw new EstadoPedidoNoDisponibleExeption("No peude Entregar Enviar un pedido sin preparar");
+        throw new EstadoPedidoNoDisponibleExeption("No puede Entregar Enviar un pedido sin preparar");
     }
 
     @Override

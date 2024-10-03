@@ -9,8 +9,7 @@ public class ItemPedido {
     private double precio;
 
     // Constructores
-    public ItemPedido() {
-    }
+    public ItemPedido(){}
 
     public ItemPedido(int id, ItemMenu itemMenu, int cantidad, double precio) {
         this.id = id;
@@ -19,7 +18,9 @@ public class ItemPedido {
         this.precio = cantidad * itemMenu.getPrecio();
     }
 
-    // getters\setters
+
+
+    // getters\setters 
     public int getId() {
         return id;
     }
@@ -27,6 +28,7 @@ public class ItemPedido {
     public void setId(int id) {
         this.id = id;
     }
+
 
     public ItemMenu getItemMenu() {
         return itemMenu;
@@ -36,6 +38,7 @@ public class ItemPedido {
         this.itemMenu = itemMenu;
     }
 
+
     public int getCantidad() {
         return cantidad;
     }
@@ -43,6 +46,7 @@ public class ItemPedido {
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
+
 
     public double getPrecio() {
         return precio;
