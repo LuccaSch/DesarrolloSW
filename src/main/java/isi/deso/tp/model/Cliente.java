@@ -1,33 +1,43 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package isi.deso.tp_etapa1.model;
+package isi.deso.tp.model;
 
-/**
- *
- * @author jarteaga
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cliente {
+
+    // Atributos
     private int id;
     private String nombre;
     private String cuit;
     private String email;
     private String direccion;
     private Coordenada coordenada;
-
+    private List<Pedido> listaPedidos;
+    
+    // Constructores
     public Cliente() {
+        listaPedidos=new ArrayList<>();
     }
 
-    public Cliente(int id, String nombre,String cuit, String email, String direccion, Coordenada coordenada) {
+    public Cliente(int id, String nombre, String cuit, String email, String direccion, Coordenada coordenada) {
         this.id = id;
-        this.nombre=nombre;
+        this.nombre = nombre;
         this.cuit = cuit;
         this.email = email;
         this.direccion = direccion;
         this.coordenada = coordenada;
+        listaPedidos=new ArrayList<>();
     }
 
+    public List<Pedido> getListaPedidos() {
+        return listaPedidos;
+    }
+
+    public void setListaPedidos(List<Pedido> listaPedidos) {
+        this.listaPedidos = listaPedidos;
+    }
+
+    // getters\setters
     public int getId() {
         return id;
     }
@@ -41,7 +51,7 @@ public class Cliente {
     }
 
     public void setNombre(String nombre) {
-        this.nombre=nombre;
+        this.nombre = nombre;
     }
 
     public String getCuit() {
