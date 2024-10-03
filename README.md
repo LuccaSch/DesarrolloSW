@@ -15,5 +15,7 @@ Los compradores pueden ingresar al sistema para
 y la forma de pago. El precio de un pedido se calculará diferente según la forma de pago.
 - Ver su historial de pedidos.
 
+##[diagrama de clases](https://drive.google.com/file/d/1BU6l79kWNCqbjuCv3-nrpd8XpZ-dUdnc/view?usp=sharing)
+
 # Modelo de Datos
 ![TP Etapa 3 Modelo de Datos](https://github.com/user-attachments/assets/5b38601b-8b6f-4330-bf4c-c59d78feab77)
